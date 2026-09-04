@@ -1,0 +1,148 @@
+# ============================================================
+# Gitignore general - Repo universidad con ~30 proyectos
+# Android (nativo) + Kotlin Multiplatform + iOS + Gradle
+# Funciona para sem2, sem3 y todos los futuros sem4, sem5...
+# ============================================================
+
+# ---------- Gradle / Build (lo más pesado, nunca se sube) ----------
+.gradle/
+**/build/
+**/out/
+!src/**/build/
+
+# ---------- Android ----------
+local.properties
+*.iml
+*.ipr
+*.iws
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+proguard/
+lint/
+
+# Keystores - no subir firmas a GitHub
+*.jks
+*.keystore
+*.p12
+
+# ---------- Kotlin / KMP / Compose Multiplatform ----------
+.kotlin/
+kotlin-js-store/
+compose-desktop/
+*.kts.caches/
+
+# ---------- Android Studio / IntelliJ IDEA ----------
+.idea/
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Mantén esto si algún día quieres compartir run configs entre tus 3 laptops:
+# Descomenta las 2 líneas siguientes:
+# !.idea/runConfigurations/
+# !.idea/codeStyles/
+
+# ---------- iOS / Xcode (para proyectos KMP como sem3) ----------
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+timeline.xctimeline
+playground.xcworkspace
+.build/
+Packages/
+Carthage/Build/
+Pods/
+xcshareddata/WorkspaceSettings.xcsettings
+
+# Pero SÍ comparte estos archivos importantes de Xcode:
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+
+# ---------- CocoaPods / Swift Package Manager ----------
+Pods/
+.build/
+.swiftpm/
+
+# ---------- Node (por si usas Compose Web / KMP web a futuro) ----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+
+# ---------- OS: macOS / Windows / Linux ----------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Thumbs.db:encdata
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*~
+
+# ---------- Otros temporales ----------
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+*.orig
+*.rej
+
+# ---------- Archivos locales con rutas de tu PC (cambian por laptop) ----------
+local.properties
+gradle-app.setting
+.versions/
+signing/
+key.properties
+google-services.json
+GoogleService-Info.plist
+*.env
+.env
+.env.local
