@@ -21,21 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.example.project.Persona
 
 @Composable
-fun ListadoScreen(){
-    val personas = listOf(
-        "Juan Pérez",
-        "María García",
-        "Pedro López",
-        "Ana Martínez",
-        "Carlos Rodríguez",
-        "Juan Pérez",
-        "María García",
-        "Pedro López",
-        "Juan Pérez",
-        "María García"
-    )
+fun ListadoScreen(regresarHome:() -> Unit,personas: List<Persona>){
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.primaryContainer)
@@ -49,13 +38,16 @@ fun ListadoScreen(){
         ) {
             items(personas){ persona ->
                 Text(
-                    text = persona,
+                    text = "${persona.nombre} ${persona.apellido}",
                     modifier = Modifier.padding(16.dp)
                 )
                 HorizontalDivider()
             }
         }
-        Button(onClick = {}){
+        Button(
+            onClick = {regresarHome()},
+            modifier = Modifier.padding(15.dp)
+        ){
             Text("Regresar")
         }
     }
@@ -63,6 +55,9 @@ fun ListadoScreen(){
 
 @Preview
 @Composable
-fun Mostrar(){
-    ListadoScreen()
+fun ListadoScreenPreview(){
+    ListadoScreen(
+        regresarHome = {},
+        personas = listOf()
+    )
 }

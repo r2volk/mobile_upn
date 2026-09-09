@@ -22,12 +22,16 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.example.project.Persona
 
 @Composable
-fun RegistrarScreen(){
+fun RegistrarScreen(
+    regresarHome:()-> Unit,
+    onRegistrar:(Persona)-> Unit){
 
     var nombre by remember { mutableStateOf("") }
     var apellido by remember { mutableStateOf("") }
+    var borrarTextos by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -69,20 +73,32 @@ fun RegistrarScreen(){
             modifier = Modifier.padding(15.dp),
             horizontalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            Button(onClick = {}){
+            Button(
+                onClick = {
+                    if (nombre.isNotBlank() && apellido.isNotBlank()){
+                        onRegistrar(Persona(nombre,apellido))
+                    }
+                    nombre = ""
+                    apellido = ""
+                }
+            ){
                 Text("Registrar")
             }
-            Button(onClick = {}){
+            Button(
+                onClick = {
+                    regresarHome()}
+            ){
                 Text("Regresar")
             }
         }
-
     }
-
 }
 
 @Preview
 @Composable
-fun AndroidPreview(){
-    RegistrarScreen()
+fun RegistrarScreenPreview() {
+    RegistrarScreen(
+        regresarHome = {},
+        onRegistrar = {}
+    )
 }

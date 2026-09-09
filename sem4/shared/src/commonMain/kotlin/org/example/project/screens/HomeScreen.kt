@@ -16,7 +16,7 @@ import org.example.project.App
 
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(listarPersonas:() -> Unit, registrarPersonas:()-> Unit){
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.primaryContainer)
@@ -25,10 +25,14 @@ fun HomeScreen(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Button(onClick = {}) {
+        Button(
+            onClick = { registrarPersonas()}
+        ){
             Text("Registrar")
         }
-        Button(onClick = {}){
+        Button(
+            onClick = { listarPersonas() }
+        ){
             Text("Listar")
         }
     }
@@ -37,6 +41,9 @@ fun HomeScreen(){
 
 @Preview
 @Composable
-fun AppAndroidPreview(){
-    HomeScreen()
+fun HomeScreenPreview() {
+    HomeScreen(
+        listarPersonas = {},
+        registrarPersonas = {}
+    )
 }
